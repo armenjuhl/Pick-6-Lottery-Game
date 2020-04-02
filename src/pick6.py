@@ -3,6 +3,20 @@ import random
 
 
 def main():
+    val_flag = False
+    while not val_flag:
+        test_input = str(input('Pick 6 numbers between 1 and 99 separated by spaces'))
+
+        try:
+            split_list = list(test_input.split(' '))
+            validated_list = list()
+            for i in split_list:
+                validated_list.append(int(i))
+            if len(validated_list) == 6:
+                val_flag = True
+        except ValueError:
+            print('You must enter 6 numbers between 1 and 99 to play')
+
     winning_nums = pick6()
     ticket = pick6()
     print('Winning Ticket ', winning_nums, '\nTicket is ', ticket)
